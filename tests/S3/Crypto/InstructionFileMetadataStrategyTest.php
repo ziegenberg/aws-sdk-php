@@ -15,9 +15,7 @@ class InstructionFileMetadataStrategyTest extends TestCase
 {
     use UsesMetadataEnvelopeTrait, UsesServiceTrait;
 
-    /**
-     * @dataProvider getMetadataFields
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getMetadataFields')]
     public function testSave($fields)
     {
         /** @var S3Client $client */
@@ -40,9 +38,7 @@ class InstructionFileMetadataStrategyTest extends TestCase
         $this->assertCount(0, $updatedArgs['Metadata']);
     }
 
-    /**
-     * @dataProvider getMetadataResult
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getMetadataResult')]
     public function testLoad($args, $metadata)
     {
         /** @var S3Client $client */

@@ -10,24 +10,22 @@ use Aws\Arn\S3\OutpostsBucketArn;
 use Aws\Arn\S3\RegionalBucketArn;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Aws\Arn\ArnParser
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Arn\ArnParser::class)]
 class ArnParserTest extends TestCase
 {
 
     /**
-     * @dataProvider isArnCases
      *
      * @param $string
      * @param $expected
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('isArnCases')]
     public function testDeterminesShouldAttemptToParseAsArn($string, $expected)
     {
         $this->assertEquals($expected, ArnParser::isArn($string));
     }
 
-    public function isArnCases()
+    public static function isArnCases()
     {
         return [
             [
@@ -58,17 +56,17 @@ class ArnParserTest extends TestCase
     }
 
     /**
-     * @dataProvider parsedArnCases
      *
      * @param $string
      * @param $expected
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('parsedArnCases')]
     public function testCorrectlyChoosesArnClass($string, $expected)
     {
         $this->assertTrue(ArnParser::parse($string) instanceof $expected);
     }
 
-    public function parsedArnCases()
+    public static function parsedArnCases()
     {
         return [
             [

@@ -7,18 +7,16 @@ use Aws\Arn\S3\OutpostsAccessPointArn;
 use Aws\Arn\S3\OutpostsBucketArn;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Aws\Arn\S3\OutpostsBucketArn
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Arn\S3\OutpostsBucketArn::class)]
 class OutpostsBucketArnTest extends TestCase
 {
     /**
-     * @dataProvider parsedArnProvider
      *
      * @param $string
      * @param $expected
      * @param $expectedString
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('parsedArnProvider')]
     public function testParsesArnString($string, $expected, $expectedString)
     {
         $arn = new OutpostsBucketArn($string);
@@ -36,7 +34,7 @@ class OutpostsBucketArnTest extends TestCase
         $this->assertEquals($expectedString, (string) $arn);
     }
 
-    public function parsedArnProvider()
+    public static function parsedArnProvider()
     {
         return [
             // Colon delimiters
@@ -115,11 +113,11 @@ class OutpostsBucketArnTest extends TestCase
     }
 
     /**
-     * @dataProvider badArnProvider
      *
      * @param $string
      * @param \Exception $expected
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('badArnProvider')]
     public function testThrowsForBadArn($string, \Exception $expected)
     {
         try {
@@ -134,7 +132,7 @@ class OutpostsBucketArnTest extends TestCase
         }
     }
 
-    public function badArnProvider()
+    public static function badArnProvider()
     {
         return [
             [

@@ -35,8 +35,8 @@ use function Aws\dir_iterator;
 
 /**
  * @covers \Aws\UserAgentMiddleware
- * @runInSeparateProcess
  */
+#[\PHPUnit\Framework\Attributes\RunInSeparateProcess]
 class UserAgentMiddlewareTest extends TestCase
 {
     use MetricsBuilderTestTrait;
@@ -1096,12 +1096,11 @@ class UserAgentMiddlewareTest extends TestCase
     /**
      * Test user agent captures metric from web id token defined by profile.
      *
-     * @runTestsInSeparateProcesses
      *
      * @return void
-     *
      * @throws \Exception
      */
+    #[\PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses]
     public function testUserAgentCaptureCredentialsProfileStsWebIdTokenMetric()
     {
         $tokenPath = $this->awsDir . '/my-token.jwt';

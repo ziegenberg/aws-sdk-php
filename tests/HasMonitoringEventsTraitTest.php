@@ -5,9 +5,7 @@ use Aws\HasMonitoringEventsTrait;
 use PHPUnit\Framework\TestCase;
 
 
-/**
- * @covers \Aws\HasMonitoringEventsTrait
- */
+#[\PHPUnit\Framework\Attributes\CoversTrait(\Aws\HasMonitoringEventsTrait::class)]
 class HasMonitoringEventsTraitTest extends TestCase
 {
 

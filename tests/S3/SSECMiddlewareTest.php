@@ -85,7 +85,7 @@ class SSECMiddlewareTest extends TestCase
         ]);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanUseWithoutHttpsForNonSse()
     {
         $client = $this->getTestClient('s3', ['scheme' => 'http']);

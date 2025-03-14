@@ -16,9 +16,7 @@ class MultipartCopyTest extends TestCase
 
     const MB = 1048576;
 
-    /**
-     * @dataProvider getTestCases
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getTestCases')]
     public function testS3MultipartCopyWorkflow(
         array $uploadOptions = [],
         $error = false
@@ -48,7 +46,7 @@ class MultipartCopyTest extends TestCase
         $this->assertSame($url, $result['ObjectURL']);
     }
 
-    public function getTestCases()
+    public static function getTestCases()
     {
         $defaults = [
             'bucket' => 'foo',

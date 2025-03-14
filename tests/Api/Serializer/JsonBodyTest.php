@@ -24,7 +24,7 @@ class JsonBodyTest extends TestCase
         );
     }
 
-    public function formatProvider()
+    public static function formatProvider()
     {
         return [
             [['type' => 'string'], ['foo' => 'bar'], '{"foo":"bar"}'],
@@ -164,9 +164,7 @@ class JsonBodyTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider formatProvider
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('formatProvider')]
     public function testFormatsJson($def, $args, $result)
     {
         $j = new JsonBody(new Service([], function() { return []; }));
@@ -174,7 +172,7 @@ class JsonBodyTest extends TestCase
         $this->assertEquals($result, $j->build($shape, $args));
     }
 
-    public function formatNoReferencesProvider()
+    public static function formatNoReferencesProvider()
     {
         return [
             // Formats nested maps and structures
@@ -212,9 +210,7 @@ class JsonBodyTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider formatNoReferencesProvider
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('formatNoReferencesProvider')]
     public function testFormatsJsonDoesNotCreateReferences($def, $args, $result)
     {
         $j = new JsonBody(new Service([], function() { return []; }));

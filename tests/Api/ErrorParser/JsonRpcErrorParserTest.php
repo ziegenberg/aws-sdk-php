@@ -9,22 +9,20 @@ use GuzzleHttp\Promise\Promise;
 use GuzzleHttp\Psr7;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Aws\Api\ErrorParser\JsonRpcErrorParser
- * @covers \Aws\Api\ErrorParser\JsonParserTrait
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Api\ErrorParser\JsonRpcErrorParser::class)]
+#[\PHPUnit\Framework\Attributes\CoversTrait(\Aws\Api\ErrorParser\JsonParserTrait::class)]
 class JsonRpcErrorParserTest extends TestCase
 {
     use TestServiceTrait;
 
     /**
-     * @dataProvider errorResponsesProvider
      *
      * @param $response
      * @param $command
      * @param $parser
      * @param $expected
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('errorResponsesProvider')]
     public function testParsesClientErrorResponses(
         $response,
         $command,

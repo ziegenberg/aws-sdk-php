@@ -136,7 +136,7 @@ class MultipartUploaderTest extends TestCase
         $this->assertSame($configProp->getValue($classicMup), $configProp->getValue($putObjectMup));
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testMultipartSuccessStreams()
     {
         $size = 12 * self::MB;

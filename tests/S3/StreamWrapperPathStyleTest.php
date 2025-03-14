@@ -73,7 +73,7 @@ class StreamWrapperPathStyleTest extends TestCase
         fopen('s3://bucket/key', 'x');
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testSuccessfulXMode()
     {
         $this->addMockResults(
@@ -766,7 +766,7 @@ class StreamWrapperPathStyleTest extends TestCase
         closedir($r);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanSetDelimiterStreamContext()
     {
         $this->addMockResults($this->client, [

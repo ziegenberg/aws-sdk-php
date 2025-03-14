@@ -39,7 +39,7 @@ class ClientResolverTest extends TestCase
         $r->resolve([], new HandlerList());
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testAddsValidationSubscriber()
     {
         $c = new DynamoDbClient([
@@ -55,7 +55,7 @@ class ClientResolverTest extends TestCase
         }
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanDisableValidation()
     {
         $c = new DynamoDbClient([
@@ -69,7 +69,7 @@ class ClientResolverTest extends TestCase
         $c->execute($command);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanDisableSpecificValidationConstraints()
     {
         $c = new DynamoDbClient([
@@ -315,7 +315,7 @@ class ClientResolverTest extends TestCase
         $this->assertSame($exp, $creds->getExpiration());
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanDisableRetries()
     {
         $r = new ClientResolver(ClientResolver::getDefaultArguments());
@@ -327,7 +327,7 @@ class ClientResolverTest extends TestCase
         ], new HandlerList());
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanEnableRetries()
     {
         $r = new ClientResolver(ClientResolver::getDefaultArguments());
@@ -339,7 +339,7 @@ class ClientResolverTest extends TestCase
         ], new HandlerList());
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanEnableRetriesStandardMode()
     {
         $r = new ClientResolver(ClientResolver::getDefaultArguments());
@@ -354,7 +354,7 @@ class ClientResolverTest extends TestCase
         ], new HandlerList());
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanEnableRetriesAdaptivedMode()
     {
         $r = new ClientResolver(ClientResolver::getDefaultArguments());
@@ -681,7 +681,7 @@ EOT;
         ];
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testAddsLoggerWithDebugSettings()
     {
         $r = new ClientResolver(ClientResolver::getDefaultArguments());
@@ -694,7 +694,7 @@ EOT;
         ], new HandlerList());
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testAddsDebugListener()
     {
         $em = new HandlerList();
@@ -743,7 +743,7 @@ EOT;
         $this->assertTrue($c->getConfig('bucket_endpoint'));
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testSkipsNonRequiredKeys()
     {
         $r = new ClientResolver([

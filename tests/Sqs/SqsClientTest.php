@@ -155,7 +155,7 @@ class SqsClientTest extends TestCase
         ]);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testSkipsCommandsThatAreNotReceiveMessage()
     {
         $client = new SqsClient([

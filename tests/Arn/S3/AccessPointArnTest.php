@@ -5,17 +5,15 @@ use Aws\Arn\S3\AccessPointArn;
 use Aws\Arn\Exception\InvalidArnException;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Aws\Arn\S3\AccessPointArn
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Arn\S3\AccessPointArn::class)]
 class AccessPointArnTest extends TestCase
 {
     /**
-     * @dataProvider invalidArnCases
      *
      * @param $string
      * @param $message
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('invalidArnCases')]
     public function testThrowsOnInvalidArn($string, $message)
     {
         try {
@@ -26,7 +24,7 @@ class AccessPointArnTest extends TestCase
         }
     }
 
-    public function invalidArnCases()
+    public static function invalidArnCases()
     {
         return [
             [

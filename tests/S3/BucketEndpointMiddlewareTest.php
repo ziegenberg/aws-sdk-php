@@ -132,7 +132,7 @@ class BucketEndpointMiddlewareTest extends TestCase
         $s3->execute($command);
     }
 
-    public function keyContainsBucketNameProvider()
+    public static function keyContainsBucketNameProvider()
     {
         return [
             ['bucketname'],
@@ -146,10 +146,9 @@ class BucketEndpointMiddlewareTest extends TestCase
     }
 
     /**
-     * @dataProvider keyContainsBucketNameProvider
-     *
      * @param $key
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('keyContainsBucketNameProvider')]
     public function testsHandlesDuplicatePathWithKeyContainsBucketName($key)
     {
         $s3 = $this->getTestClient('s3', [

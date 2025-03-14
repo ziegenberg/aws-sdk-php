@@ -12,9 +12,7 @@ class HeadersMetadataStrategyTest extends TestCase
 {
     use UsesMetadataEnvelopeTrait;
 
-    /**
-     * @dataProvider getMetadataFields
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getMetadataFields')]
     public function testSave($fields)
     {
         $strategy = new HeadersMetadataStrategy();
@@ -29,9 +27,7 @@ class HeadersMetadataStrategyTest extends TestCase
         }
     }
 
-    /**
-     * @dataProvider getMetadataResult
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getMetadataResult')]
     public function testLoad($args, $metadata)
     {
         $strategy = new HeadersMetadataStrategy();

@@ -11,9 +11,7 @@ use Cassandra\Time;
 use GuzzleHttp\Psr7\Request;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Aws\InputValidationMiddleware
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\InputValidationMiddleware::class)]
 class InputValidationMiddlewareTest extends TestCase
 {
     /**
@@ -21,7 +19,7 @@ class InputValidationMiddlewareTest extends TestCase
      *
      * @return array
      */
-    public function getInvalidEndpointExceptions()
+    public static function getInvalidEndpointExceptions()
     {
         return [
             [''],
@@ -36,7 +34,7 @@ class InputValidationMiddlewareTest extends TestCase
      *
      * @return array
      */
-    public function getValidInputs()
+    public static function getValidInputs()
     {
         return [
             ['existing data'],
@@ -49,10 +47,9 @@ class InputValidationMiddlewareTest extends TestCase
     }
 
     /**
-     * @dataProvider getInvalidEndpointExceptions
-     *
      * @param $input
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getInvalidEndpointExceptions')]
     public function testThrowsExceptions($input)
     {
         $service = $this->generateTestService();
@@ -81,10 +78,9 @@ class InputValidationMiddlewareTest extends TestCase
     }
 
     /**
-     * @dataProvider getInvalidEndpointExceptions
-     *
      * @param $input
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getInvalidEndpointExceptions')]
     public function testNoValidationWithoutInputList($input)
     {
         $service = $this->generateTestService();
@@ -104,10 +100,9 @@ class InputValidationMiddlewareTest extends TestCase
     }
 
     /**
-     * @dataProvider getValidInputs
-     *
      * @param $input
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getValidInputs')]
     public function testPassingValidations($input)
     {
         $service = $this->generateTestService();

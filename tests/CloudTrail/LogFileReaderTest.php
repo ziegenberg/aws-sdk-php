@@ -13,9 +13,7 @@ class LogFileReaderTest extends TestCase
 {
     use UsesServiceTrait;
 
-    /**
-     * @dataProvider dataForLogReadingTest
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataForLogReadingTest')]
     public function testCorrectlyReadsLogFiles($responseBody, $recordCount)
     {
         $s3Client = $this->getTestClient('s3', [
@@ -30,7 +28,7 @@ class LogFileReaderTest extends TestCase
         $this->assertCount($recordCount, $records);
     }
 
-    public function dataForLogReadingTest()
+    public static function dataForLogReadingTest()
     {
         return [
             ['{"Records":[{"foo":"1"},{"bar":"2"},{"baz":"3"}]}', 3],

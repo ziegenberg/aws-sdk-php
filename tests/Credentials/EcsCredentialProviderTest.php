@@ -101,7 +101,7 @@ class EcsCredentialProviderTest extends TestCase
         $this->assertSame($t, $c->getExpiration());
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testDoesNotRequireConfig()
     {
         new EcsCredentialProvider();

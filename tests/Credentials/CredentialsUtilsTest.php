@@ -4,18 +4,15 @@ namespace Aws\Test\Credentials;
 use Aws\Credentials\CredentialsUtils;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Aws\Credentials\CredentialsUtils
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Credentials\CredentialsUtils::class)]
 class CredentialsUtilsTest extends TestCase
 {
 
     /**
      * @param string $host
      * @param bool $expectedResult
-     *
-     * @dataProvider loopBackAddressCasesProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('loopBackAddressCasesProvider')]
     public function testLoopBackAddressCases(string $host, bool $expectedResult)
     {
         $isLoopBack = CredentialsUtils::isLoopBackAddress($host);
@@ -25,7 +22,7 @@ class CredentialsUtilsTest extends TestCase
     /**
      * @return string[]
      */
-    public function loopBackAddressCasesProvider(): array
+    public static function loopBackAddressCasesProvider(): array
     {
         return [
             'IPv6_invalid_loopBack' =>

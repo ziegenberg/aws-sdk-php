@@ -17,12 +17,11 @@ use PHPUnit\Framework\TestCase;
 
 class JsonRpcParserTest extends TestCase
 {
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanHandleNullResponses()
     {
         $operation = $this->getMockBuilder(Operation::class)
             ->disableOriginalConstructor()
-            ->setMethods(['getOutput'])
             ->getMock();
         $operation->expects($this->any())
             ->method('getOutput')
@@ -30,13 +29,11 @@ class JsonRpcParserTest extends TestCase
             ->willReturn(
                 $this->getMockBuilder(Shape::class)
                     ->disableOriginalConstructor()
-                    ->setMethods([])
                     ->getMock()
             );
 
         $service = $this->getMockBuilder(Service::class)
             ->disableOriginalConstructor()
-            ->setMethods(['getOperation'])
             ->getMock();
         $service->expects($this->any())
             ->method('getOperation')
@@ -45,7 +42,6 @@ class JsonRpcParserTest extends TestCase
 
         $parser = $this->getMockBuilder(JsonParser::class)
             ->disableOriginalConstructor()
-            ->setMethods(['parse'])
             ->getMock();
         $parser->expects($this->any())
             ->method('parse')
@@ -63,7 +59,6 @@ class JsonRpcParserTest extends TestCase
     {
         $operation = $this->getMockBuilder(Operation::class)
             ->disableOriginalConstructor()
-            ->setMethods(['offsetGet'])
             ->getMock();
         $operation->expects($this->atLeastOnce())
             ->method('offsetGet')
@@ -72,7 +67,6 @@ class JsonRpcParserTest extends TestCase
 
         $service = $this->getMockBuilder(Service::class)
             ->disableOriginalConstructor()
-            ->setMethods(['getOperation'])
             ->getMock();
         $service->expects($this->any())
             ->method('getOperation')
@@ -81,7 +75,6 @@ class JsonRpcParserTest extends TestCase
 
         $parser = $this->getMockBuilder(JsonParser::class)
             ->disableOriginalConstructor()
-            ->setMethods(['parse'])
             ->getMock();
         $parser->expects($this->never())
             ->method('parse');
@@ -97,11 +90,9 @@ class JsonRpcParserTest extends TestCase
     {
         $service = $this->getMockBuilder(Service::class)
             -> disableOriginalConstructor()
-            -> setMethods(['getOperation'])
             -> getMock();
         $operation = $this->getMockBuilder(Operation::class)
             -> disableOriginalConstructor()
-            -> setMethods(['getOutput'])
             -> getMock();
         $outputShape = new StructureShape([
             'type' => 'structure',
@@ -129,7 +120,6 @@ class JsonRpcParserTest extends TestCase
         $jsonRPCParser = new JsonRpcParser($service);
         $command = $this->getMockBuilder(Command::class)
             -> disableOriginalConstructor()
-            -> setMethods(['getName'])
             -> getMock();
         $command->method('getName')
             ->willReturn('TestCommand');
@@ -155,11 +145,9 @@ class JsonRpcParserTest extends TestCase
     {
         $service = $this->getMockBuilder(Service::class)
             -> disableOriginalConstructor()
-            -> setMethods(['getOperation'])
             -> getMock();
         $operation = $this->getMockBuilder(Operation::class)
             -> disableOriginalConstructor()
-            -> setMethods(['getOutput'])
             -> getMock();
         $outputShape = new StructureShape([
             'type' => 'structure',
@@ -198,7 +186,6 @@ class JsonRpcParserTest extends TestCase
         $jsonRPCParser = new JsonRpcParser($service);
         $command = $this->getMockBuilder(Command::class)
             -> disableOriginalConstructor()
-            -> setMethods(['getName'])
             -> getMock();
         $command->method('getName')
             ->willReturn('TestCommand');

@@ -12,9 +12,7 @@ use PHPUnit\Framework\TestCase;
  */
 class MultipartUploadExceptionTest extends TestCase
 {
-    /**
-     * @dataProvider getTestCases
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getTestCases')]
     public function testCanCreateMultipartException($commandName, $status)
     {
         $msg = 'Error encountered while reticulating splines.';
@@ -30,7 +28,7 @@ class MultipartUploadExceptionTest extends TestCase
         $this->assertSame($prev, $exception->getPrevious());
     }
 
-    public function getTestCases()
+    public static function getTestCases()
     {
         return [
             ['CreateMultipartUpload', 'initiating'],

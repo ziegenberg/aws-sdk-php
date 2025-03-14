@@ -29,7 +29,7 @@ class CloudFrontClientTest extends TestCase
         $c->getSignedUrl([]);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCreatesSignedUrl()
     {
         $c = new CloudFrontClient([
@@ -45,7 +45,7 @@ class CloudFrontClientTest extends TestCase
         ]);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCreatesSignedCookie()
     {
         $c = new CloudFrontClient([

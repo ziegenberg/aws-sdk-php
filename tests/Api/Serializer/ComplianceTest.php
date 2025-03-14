@@ -7,23 +7,21 @@ use Aws\Signature\SignatureInterface;
 use Aws\Test\UsesServiceTrait;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Aws\Api\Serializer\QuerySerializer
- * @covers \Aws\Api\Serializer\JsonRpcSerializer
- * @covers \Aws\Api\Serializer\RestSerializer
- * @covers \Aws\Api\Serializer\RestJsonSerializer
- * @covers \Aws\Api\Serializer\RestXmlSerializer
- * @covers \Aws\Api\Serializer\JsonBody
- * @covers \Aws\Api\Serializer\XmlBody
- * @covers \Aws\Api\Serializer\Ec2ParamBuilder
- * @covers \Aws\Api\Serializer\QueryParamBuilder
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Api\Serializer\QuerySerializer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Api\Serializer\JsonRpcSerializer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Api\Serializer\RestSerializer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Api\Serializer\RestJsonSerializer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Api\Serializer\RestXmlSerializer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Api\Serializer\JsonBody::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Api\Serializer\XmlBody::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Api\Serializer\Ec2ParamBuilder::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Api\Serializer\QueryParamBuilder::class)]
 class ComplianceTest extends TestCase
 {
     use UsesServiceTrait;
 
-    /** @doesNotPerformAssertions */
-    public function testCaseProvider()
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
+    public static function testCaseProvider()
     {
         $cases = [];
 
@@ -61,9 +59,7 @@ class ComplianceTest extends TestCase
         return $cases;
     }
 
-    /**
-     * @dataProvider testCaseProvider
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('testCaseProvider')]
     public function testPassesComplianceTest(
         $about,
         Service $service,

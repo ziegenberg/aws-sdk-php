@@ -23,9 +23,7 @@ class MultipartUploaderTest extends TestCase
         @unlink(sys_get_temp_dir() . '/' . self::FILENAME);
     }
 
-    /**
-     * @dataProvider getTestCases
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getTestCases')]
     public function testGlacierMultipartUploadWorkflow(
         array $uploadOptions = [],
         ?StreamInterface $source = null,
@@ -55,7 +53,7 @@ class MultipartUploaderTest extends TestCase
         $this->assertSame('buzz', $result['fizz']);
     }
 
-    public function getTestCases()
+    public static function getTestCases()
     {
         $defaults = [
             'account_id'          => 'foo',

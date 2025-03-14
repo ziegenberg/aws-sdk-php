@@ -15,9 +15,7 @@ class GetBucketLocationParserTest extends TestCase
 {
     use UsesServiceTrait;
 
-    /**
-     * @dataProvider getTestCases
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getTestCases')]
     public function testParsesLocationFromGetBucketLocationOperations(
         $commandName, $responseBody, $expectedValue
     ) {
@@ -33,7 +31,7 @@ class GetBucketLocationParserTest extends TestCase
         $this->assertEquals($expectedValue, $result['LocationConstraint']);
     }
 
-    public function getTestCases()
+    public static function getTestCases()
     {
         return [
             ['GetBucketLocation', '<LocationConstraint>us-west-2</LocationConstraint>', 'us-west-2'],

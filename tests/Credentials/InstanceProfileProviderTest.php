@@ -897,13 +897,13 @@ class InstanceProfileProviderTest extends TestCase
         )->wait();
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testDoesNotRequireConfig()
     {
         new InstanceProfileProvider();
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testEnvDisableFlag()
     {
         $flag = getenv(InstanceProfileProvider::ENV_DISABLE);

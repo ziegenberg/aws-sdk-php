@@ -6,14 +6,10 @@ use Aws\Endpoint\Partition;
 use Aws\Endpoint\PartitionEndpointProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Aws\Endpoint\PartitionEndpointProvider
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Endpoint\PartitionEndpointProvider::class)]
 class PartitionEndpointProviderTest extends TestCase
 {
-    /**
-     * @dataProvider endpointProvider
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('endpointProvider')]
     public function testResolvesEndpoints($input, $output)
     {
         // Use the default endpoints file
@@ -21,7 +17,7 @@ class PartitionEndpointProviderTest extends TestCase
         $this->assertEquals($output, $p($input));
     }
 
-    public function endpointProvider()
+    public static function endpointProvider()
     {
         return [
             [
@@ -154,12 +150,12 @@ class PartitionEndpointProviderTest extends TestCase
     }
 
     /**
-     * @dataProvider partitionRegionProvider
      *
      * @param string $region
      * @param string $service
      * @param string $partition
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('partitionRegionProvider')]
     public function testResolvesPartitionsByRegion($region, $service, $partition)
     {
         // Use the default endpoints file
@@ -167,7 +163,7 @@ class PartitionEndpointProviderTest extends TestCase
         $this->assertSame($partition, $p->getPartition($region, $service)->getName());
     }
 
-    public function partitionRegionProvider()
+    public static function partitionRegionProvider()
     {
         return [
             ['us-east-1', 's3', 'aws'],
@@ -216,13 +212,13 @@ class PartitionEndpointProviderTest extends TestCase
     }
 
     /**
-     * @dataProvider knownEndpointProvider
      *
      * @param PartitionEndpointProvider $provider
      * @param $region
      * @param $service
      * @param $endpoint
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('knownEndpointProvider')]
     public function testCanGenerateKnownEndpointsKnownToPatternProvider(
         PartitionEndpointProvider $provider,
         $region,
@@ -293,7 +289,7 @@ class PartitionEndpointProviderTest extends TestCase
         }
     }
 
-    public function knownEndpointProvider()
+    public static function knownEndpointProvider()
     {
         $partitions = PartitionEndpointProvider::defaultProvider();
 

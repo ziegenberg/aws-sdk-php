@@ -6,19 +6,17 @@ use Aws\Arn\Exception\InvalidArnException;
 use GuzzleHttp\Promise\Promise;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Aws\Arn\Arn
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Arn\Arn::class)]
 class ArnTest extends TestCase
 {
 
     /**
-     * @dataProvider parsedArnProvider
      *
      * @param $string
      * @param $expected
      * @param $expectedString
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('parsedArnProvider')]
     public function testParsesArnString($string, $expected, $expectedString)
     {
         $arn = new Arn($string);
@@ -32,7 +30,7 @@ class ArnTest extends TestCase
         $this->assertEquals($expectedString, (string) $arn);
     }
 
-    public function parsedArnProvider()
+    public static function parsedArnProvider()
     {
         return [
             // All components
@@ -117,11 +115,11 @@ class ArnTest extends TestCase
     }
 
     /**
-     * @dataProvider invalidArnCases
      *
      * @param $string
      * @param $message
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('invalidArnCases')]
     public function testThrowsOnInvalidArn($string, $message)
     {
         try {
@@ -132,7 +130,7 @@ class ArnTest extends TestCase
         }
     }
 
-    public function invalidArnCases()
+    public static function invalidArnCases()
     {
         return [
             [

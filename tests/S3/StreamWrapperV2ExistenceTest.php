@@ -43,9 +43,7 @@ class StreamWrapperV2ExistenceTest extends TestCase
         $this->client = null;
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testSuccessfulXMode()
     {
         $this->addMockResults(

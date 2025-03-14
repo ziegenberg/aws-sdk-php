@@ -20,7 +20,7 @@ class PermanentRedirectMiddlewareTest extends TestCase
         $s3->getObject(['Bucket' => 'test', 'Key' => 'key']);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testPassesThroughUntouched()
     {
         $s3 = $this->getTestClient('s3');

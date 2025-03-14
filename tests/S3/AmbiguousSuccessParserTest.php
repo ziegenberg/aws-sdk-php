@@ -54,8 +54,8 @@ class AmbiguousSuccessParserTest extends TestCase
     /**
      * @dataProvider opsWithoutAmbiguousSuccessesProvider
      * @param string $operation
-     * @doesNotPerformAssertions
      */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testIgnoresAmbiguousSuccessesOnUnaffectedOperations($operation)
     {
         $command = $this->getMockBuilder(CommandInterface::class)->getMock();

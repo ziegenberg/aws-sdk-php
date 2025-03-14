@@ -81,7 +81,7 @@ class StreamWrapperTest extends TestCase
         fopen('s3://arn:aws:s3:us-east-1:123456789012:foo:myaccess/test_key', 'r');
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testSuccessfulXMode()
     {
         $this->addMockResults(
@@ -881,7 +881,7 @@ class StreamWrapperTest extends TestCase
         closedir($r);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanSetDelimiterStreamContext()
     {
         $this->addMockResults($this->client, [

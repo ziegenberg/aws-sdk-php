@@ -273,7 +273,7 @@ class AwsClientTest extends TestCase
         $this->assertStringContainsString('AWS4-HMAC-SHA256', $str);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testAllowsFactoryMethodForBc()
     {
         Ec2Client::factory([
@@ -282,7 +282,7 @@ class AwsClientTest extends TestCase
         ]);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanInstantiateAliasedClients()
     {
         new SesClient([
@@ -783,8 +783,8 @@ EOT
 
     /**
      * @dataProvider signingRegionSetProvider
-     * @runInSeparateProcess
      */
+    #[\PHPUnit\Framework\Attributes\RunInSeparateProcess]
     public function testSigningRegionSetResolution(
         $command,
         $env,

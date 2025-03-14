@@ -16,7 +16,7 @@ class PatternEndpointProviderTest extends TestCase
         $this->assertNull($e(['service' => 'foo', 'region' => 'bar']));
     }
 
-    public function endpointProvider()
+    public static function endpointProvider()
     {
         return [
             [
@@ -72,9 +72,7 @@ class PatternEndpointProviderTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider endpointProvider
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('endpointProvider')]
     public function testResolvesEndpoints($input, $output)
     {
         $p = EndpointProvider::patterns([

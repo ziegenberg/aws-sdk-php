@@ -81,8 +81,8 @@ class RulesetParameterTest extends TestCase
 
     /**
      * @dataProvider validTypesProvider
-     * @doesNotPerformAssertions
      */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testRulesetCreationWithValidTypes($spec)
     {
         new RulesetParameter('FooParam', $spec);

@@ -10,7 +10,6 @@ use PHPUnit\Framework\TestCase;
 class CodeSnippetGeneratorTest extends TestCase
 {
     /**
-     * @dataProvider exampleProvider
      *
      * @param Service $service
      * @param string $operation
@@ -18,6 +17,7 @@ class CodeSnippetGeneratorTest extends TestCase
      * @param string $expected
      * @param bool $isInput
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('exampleProvider')]
     public function testCanBuildCodeExamples(
         Service $service,
         $operation,
@@ -29,7 +29,7 @@ class CodeSnippetGeneratorTest extends TestCase
         $this->assertSame($expected, $builder($operation, $input, [], $isInput));
     }
 
-    public function exampleProvider()
+    public static function exampleProvider()
     {
         $provider = ApiProvider::defaultProvider();
         return [

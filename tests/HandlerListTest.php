@@ -58,7 +58,7 @@ class HandlerListTest extends TestCase
         $this->assertSame($handler, $list->resolve());
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testIgnoreWhenNameNotFound()
     {
         $list = new HandlerList();

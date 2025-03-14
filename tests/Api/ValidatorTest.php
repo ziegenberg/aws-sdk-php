@@ -647,7 +647,7 @@ class ValidatorTest extends TestCase
         $validator->validate('Foo', $shape, ['foo' => '']);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testDoesNotValidateMaxByDefault()
     {
         $shape = Shape::create(
@@ -661,7 +661,7 @@ class ValidatorTest extends TestCase
         $validator->validate('Foo', $shape, ['foo' => '1234567890']);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testDoesNotValidatePatternsByDefault()
     {
         $validator = new Validator();
@@ -680,7 +680,7 @@ class ValidatorTest extends TestCase
         $validator->validate('Foo', $shape, ['caps' => 'abc']);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanDisableRequiredTrait()
     {
         $validator = new Validator(['required' => false]);

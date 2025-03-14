@@ -12,7 +12,7 @@ class CurrentChangesTest extends TestCase
         return end($portions);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testVerifyDotChangesFolder()
     {
         $files = glob(__DIR__ . '/../../../.changes/*');
@@ -31,7 +31,7 @@ class CurrentChangesTest extends TestCase
         }
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testVerifyNextreleaseContents()
     {
         if (!is_dir(__DIR__ . '/../../../.changes/nextrelease/')) {

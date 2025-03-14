@@ -6,22 +6,20 @@ use Aws\Test\TestServiceTrait;
 use GuzzleHttp\Psr7;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Aws\Api\ErrorParser\RestJsonErrorParser
- * @covers \Aws\Api\ErrorParser\JsonParserTrait
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\Api\ErrorParser\RestJsonErrorParser::class)]
+#[\PHPUnit\Framework\Attributes\CoversTrait(\Aws\Api\ErrorParser\JsonParserTrait::class)]
 class RestJsonErrorParserTest extends TestCase
 {
     use TestServiceTrait;
 
     /**
-     * @dataProvider errorResponsesProvider
      *
      * @param $response
      * @param $command
      * @param $parser
      * @param $expected
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('errorResponsesProvider')]
     public function testParsesClientErrorResponses(
         $response,
         $command,

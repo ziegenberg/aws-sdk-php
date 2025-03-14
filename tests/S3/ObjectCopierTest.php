@@ -17,9 +17,7 @@ class ObjectCopierTest extends TestCase
 {
     use UsesServiceTrait;
 
-    /**
-     * @dataProvider getCopyTestCases
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getCopyTestCases')]
     public function testDoesCorrectOperation(
         array $mockedResults,
         array $options
@@ -38,9 +36,7 @@ class ObjectCopierTest extends TestCase
         $this->assertTrue($this->mockQueueEmpty());
     }
 
-    /**
-     * @dataProvider getCopyTestCasesWithPathStyle
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getCopyTestCasesWithPathStyle')]
     public function testDoesCorrectOperationWithPathStyle(
         array $mockedResults,
         array $options
@@ -62,10 +58,10 @@ class ObjectCopierTest extends TestCase
     }
 
     /**
-     * @dataProvider getCopyTestCases
      * @param array $mockedResults
      * @param array $options
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getCopyTestCases')]
     public function testDoesCorrectOperationWithAccessPointArn(
         array $mockedResults,
         array $options
@@ -139,9 +135,7 @@ class ObjectCopierTest extends TestCase
         $this->assertTrue($this->mockQueueEmpty());
     }
 
-    /**
-     * @dataProvider getCopyTestCases
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getCopyTestCases')]
     public function testDoesCorrectOperationAsynchronously(
         array $mockedResults,
         array $options
@@ -162,9 +156,7 @@ class ObjectCopierTest extends TestCase
         $this->assertTrue($this->mockQueueEmpty());
     }
 
-    /**
-     * @dataProvider getCopyTestCasesWithPathStyle
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getCopyTestCasesWithPathStyle')]
     public function testDoesCorrectOperationAsynchronouslyWithPathStyle(
         array $mockedResults,
         array $options
@@ -257,7 +249,6 @@ class ObjectCopierTest extends TestCase
     {
         $client = $this->getMockBuilder(S3Client::class)
             ->disableOriginalConstructor()
-            ->setMethods(['getCommand', 'executeAsync'])
             ->getMock();
 
         $headObjectCommand = new Command('HeadObject');
@@ -398,7 +389,7 @@ class ObjectCopierTest extends TestCase
         $this->assertSame($url, $result['ObjectURL']);
     }
 
-    public function MultipartCopierProvider(){
+    public static function MultipartCopierProvider(){
         return [
             ["中文", "文件夹/文件"],
             ["文件夹/文件", "中文"],
@@ -406,9 +397,7 @@ class ObjectCopierTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider MultipartCopierProvider
-     */
+    #[\PHPUnit\Framework\Attributes\DataProvider('MultipartCopierProvider')]
     public function testS3ObjectMultipartCopier($input, $expectedOutput)
     {
         /** @var \Aws\S3\S3Client $client */

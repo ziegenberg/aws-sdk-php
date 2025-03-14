@@ -5,9 +5,7 @@ namespace Aws\Test\EndpointDiscovery;
 use Aws\EndpointDiscovery\EndpointList;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \Aws\EndpointDiscovery\EndpointList
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Aws\EndpointDiscovery\EndpointList::class)]
 class EndpointListTest extends TestCase
 {
     public function testStoresRetrievesAndCyclesActiveEndpoints()

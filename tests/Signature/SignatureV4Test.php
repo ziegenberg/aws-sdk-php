@@ -333,7 +333,7 @@ class SignatureV4Test extends TestCase
         $signature->signRequest($request, $credentials);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testUnsignedPayloadProvider()
     {
         return [
@@ -411,7 +411,7 @@ class SignatureV4Test extends TestCase
         $this->assertSame($sreq, Psr7\Message::toString($signature->signRequest($request, $credentials)));
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testProvider()
     {
         return [

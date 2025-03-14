@@ -61,7 +61,7 @@ class WaiterTest extends TestCase
         );
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testContinueWaitingOnHandlerError()
     {
         $retries = 10;
@@ -94,7 +94,7 @@ class WaiterTest extends TestCase
         ]);
     }
 
-    /** @doesNotPerformAssertions */
+    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
     public function testCanCancel()
     {
         $client = $this->getTestClient('DynamoDb');
